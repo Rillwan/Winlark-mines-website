@@ -2,7 +2,7 @@
   'use strict';
 
   // ---- Config: replace with the real number (country code, digits only) ----
-  var WA_NUMBER = '910000000000';
+  var WA_NUMBER = '919847900322';
   var WA_TEXT = 'Hello Winlark Mines, I would like to enquire about construction materials.';
 
   window.WINLARK_WA = WA_NUMBER;
