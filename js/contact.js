@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var EMAIL = 'info@example.com';
+  var EMAIL = 'info@winlarkmines.com';
   var form = document.getElementById('enquiryForm');
   var msg = document.getElementById('formMsg');
   if (!form) return;
@@ -15,7 +15,7 @@
   }
   function body(d) {
     return [
-      'Enquiry for Winlark Mines',
+      'Enquiry for Winlark Minerals',
       'Name: ' + d.name,
       'Company: ' + (d.company || '-'),
       'Phone: ' + d.phone,

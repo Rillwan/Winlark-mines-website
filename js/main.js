@@ -3,7 +3,7 @@
 
   // ---- Config: replace with the real number (country code, digits only) ----
   var WA_NUMBER = '919847900322';
-  var WA_TEXT = 'Hello Winlark Mines, I would like to enquire about construction materials.';
+  var WA_TEXT = 'Hello Winlark Minerals, I would like to enquire about construction materials.';
 
   window.WINLARK_WA = WA_NUMBER;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,7 +11,7 @@
 
   // WhatsApp links
   document.querySelectorAll('.wa-link').forEach(function (a) {
-    var txt = a.dataset.product ? 'Hello Winlark Mines, I would like to enquire about ' + a.dataset.product + '.' : WA_TEXT;
+    var txt = a.dataset.product ? 'Hello Winlark Minerals, I would like to enquire about ' + a.dataset.product + '.' : WA_TEXT;
     a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(txt);
     a.target = '_blank';
     a.rel = 'noopener';
@@ -103,6 +103,28 @@
     ScrollTrigger.batch('.reveal', {
       start: 'top 90%', once: true,
       onEnter: function (els) { gsap.to(els, { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: 'power3.out' }); }
+    });
+
+    // Crusher network diagram
+    document.querySelectorAll('.net-svg').forEach(function (svg) {
+      var lines = svg.querySelectorAll('.net-line');
+      var nodes = svg.querySelectorAll('.net-node');
+      var dots = svg.querySelectorAll('.net-dot');
+      lines.forEach(function (l) { var len = l.getTotalLength(); l.style.strokeDasharray = len; l.style.strokeDashoffset = len; });
+      gsap.set(nodes, { opacity: 0 });
+      gsap.set(dots, { opacity: 0 });
+      ScrollTrigger.create({
+        trigger: svg, start: 'top 80%', once: true,
+        onEnter: function () {
+          gsap.to(nodes, { opacity: 1, duration: 0.5, stagger: 0.08 });
+          gsap.to(lines, { strokeDashoffset: 0, duration: 1.1, stagger: 0.12, ease: 'power2.out', delay: 0.2 });
+          dots.forEach(function (d, i) {
+            gsap.set(d, { opacity: 1, attr: { cx: d.dataset.x, cy: d.dataset.y } });
+            gsap.to(d, { attr: { cx: 200, cy: 170 }, duration: 2.2 + i * 0.25, repeat: -1, ease: 'none', delay: 1.4 + i * 0.3 });
+          });
+          gsap.to(svg.querySelector('.net-hub-ring'), { scale: 1.3, opacity: 0, svgOrigin: '200 170', duration: 1.8, repeat: -1, ease: 'power1.out' });
+        }
+      });
     });
 
     // Hero image parallax
