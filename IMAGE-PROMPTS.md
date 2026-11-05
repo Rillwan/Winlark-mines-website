@@ -27,3 +27,6 @@ Add this style to each: photorealistic, natural daylight, warm earthy tones with
 - **msand.jpg** Fine manufactured sand in a smooth cone-shaped pile on a clean concrete yard, sunlight showing the grain texture.
 
 Services page: replace the three picsum links in services.html with images/transport.jpg, images/dam-desiltation.jpg, images/land-development.jpg. Products: images/msand.jpg.
+
+- **heavy-equipment.jpg** (4:3, 1400x1050) A yellow backhoe loader and a hydraulic excavator parked side by side at a construction site, red earth, a tipper truck in the background, no brand markings. Add the style line above.
+Replace the picsum link for "Heavy Equipment Arrangements" in services.html with images/heavy-equipment.jpg.
