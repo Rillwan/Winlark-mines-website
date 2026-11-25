@@ -796,3 +796,11 @@ body {
     margin: 0;
     display: inline
 }
+
+/* office addresses */
+.foot-office {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: .15rem
+}
